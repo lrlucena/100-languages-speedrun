@@ -1,0 +1,24 @@
+verifique(acho, palavra : Texto) =
+  para número de 1 até 5 gere
+    se acho[número] == palavra[número]   entao  "🟩"
+    senãose palavra.contem(acho[número]) então  "🟨"
+    senão                                       "⬛"
+    fim
+  fim.junte("")
+
+palavras = Arquivo.leia("palavras.txt")
+palavra = aleatorio(palavras)
+
+var acho = ""
+
+enquanto acho <> palavra faca
+  imprima "Palpite: "
+  acho := leia_texto
+  se acho.tamanho <> 5
+    escreva "palavra deve ter 5 letras"
+  senaose palavras.contem(acho)
+    escreva verifique(acho, palavra)
+  senão
+    escreva "essa palavra não é aceita"
+  fim
+fim
